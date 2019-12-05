@@ -53,6 +53,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="AppCenterTraceListener.cs" />
     <Compile Include="Commands\AddNew\NewAutoRestClientCommand.cs" />
     <Compile Include="Commands\AddNew\NewNSwagClientCommand.cs" />
     <Compile Include="Commands\AddNew\NewNSwagStudioClientCommand.cs" />
@@ -191,6 +192,12 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <PackageReference Include="Microsoft.AppCenter.Analytics">
+      <Version>2.6.2</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.AppCenter.Crashes">
+      <Version>2.6.2</Version>
+    </PackageReference>
     <PackageReference Include="Microsoft.CodeAnalysis.Analyzers">
       <Version>1.1.0</Version>
     </PackageReference>

@@ -5,7 +5,7 @@ using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
 using Microsoft.VisualStudio.Threading;
 
-namespace ChristianHelle.DeveloperTools.CodeGenerators.ApiClient.Core
+namespace ChristianHelle.DeveloperTools.CodeGenerators.ApiClient
 {
     public class AppCenterTraceListener : TraceListener
     {
