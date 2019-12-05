@@ -10,6 +10,9 @@ using ChristianHelle.DeveloperTools.CodeGenerators.ApiClient.Options.AutoRest;
 using ChristianHelle.DeveloperTools.CodeGenerators.ApiClient.Options.General;
 using ChristianHelle.DeveloperTools.CodeGenerators.ApiClient.Options.NSwag;
 using ChristianHelle.DeveloperTools.CodeGenerators.ApiClient.Options.NSwagStudio;
+using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
 using Microsoft.VisualStudio.Shell;
 using OutputWindow = ChristianHelle.DeveloperTools.CodeGenerators.ApiClient.Windows.OutputWindow;
 using Task = System.Threading.Tasks.Task;
@@ -84,6 +87,10 @@ namespace ChristianHelle.DeveloperTools.CodeGenerators.ApiClient
             CancellationToken cancellationToken,
             IProgress<ServiceProgressData> progress)
         {
+            AppCenter.Start(
+                "aa732165-2dbb-44ec-ad72-89c6c0c62d5f",
+                typeof(Analytics), typeof(Crashes));
+
             await JoinableTaskFactory.SwitchToMainThreadAsync(cancellationToken);
             await base.InitializeAsync(cancellationToken, progress);
             OutputWindow.Initialize(this, VsixName);
