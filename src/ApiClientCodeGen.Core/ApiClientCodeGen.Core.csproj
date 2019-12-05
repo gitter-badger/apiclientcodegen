@@ -17,6 +17,8 @@
 
   <ItemGroup>
     <PackageReference Include="ICSharpCode.CodeConverter" Version="7.3.0" />
+    <PackageReference Include="Microsoft.AppCenter.Analytics" Version="2.6.2" />
+    <PackageReference Include="Microsoft.AppCenter.Crashes" Version="2.6.2" />
     <PackageReference Include="Newtonsoft.Json" Version="9.0.1" />
     <PackageReference Include="NSwag.CodeGeneration.CSharp" Version="13.1.6" />
   </ItemGroup>
