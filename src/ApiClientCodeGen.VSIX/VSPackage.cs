@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.Runtime.InteropServices;
 using System.Threading;
@@ -6,6 +7,7 @@ using ChristianHelle.DeveloperTools.CodeGenerators.ApiClient.Commands;
 using ChristianHelle.DeveloperTools.CodeGenerators.ApiClient.Commands.AddNew;
 using ChristianHelle.DeveloperTools.CodeGenerators.ApiClient.Commands.CustomTool;
 using ChristianHelle.DeveloperTools.CodeGenerators.ApiClient.Commands.NSwagStudio;
+using ChristianHelle.DeveloperTools.CodeGenerators.ApiClient.Core;
 using ChristianHelle.DeveloperTools.CodeGenerators.ApiClient.Options.AutoRest;
 using ChristianHelle.DeveloperTools.CodeGenerators.ApiClient.Options.General;
 using ChristianHelle.DeveloperTools.CodeGenerators.ApiClient.Options.NSwag;
@@ -87,13 +89,10 @@ namespace ChristianHelle.DeveloperTools.CodeGenerators.ApiClient
             CancellationToken cancellationToken,
             IProgress<ServiceProgressData> progress)
         {
-            AppCenter.Start(
-                "aa732165-2dbb-44ec-ad72-89c6c0c62d5f",
-                typeof(Analytics), typeof(Crashes));
-
             await JoinableTaskFactory.SwitchToMainThreadAsync(cancellationToken);
             await base.InitializeAsync(cancellationToken, progress);
             OutputWindow.Initialize(this, VsixName);
+            AppCenterTraceListener.Initialize();
             Instance = this;
 
             foreach (var command in commands)
