@@ -9,15 +9,22 @@ namespace ChristianHelle.DeveloperTools.CodeGenerators.ApiClient
 {
     public class AppCenterTraceListener : TraceListener
     {
-        public AppCenterTraceListener(string secret)
+        public AppCenterTraceListener()
         {
-            AppCenter.Start(
-                secret,
-                typeof(Analytics), typeof(Crashes));
+            try
+            {
+                AppCenter.Start(
+                        "aa732165-2dbb-44ec-ad72-89c6c0c62d5f",
+                        typeof(Analytics), typeof(Crashes));
+            }
+            catch (Exception e)
+            {
+                Trace.WriteLine(e);
+            }
         }
 
-        public static void Initialize(string secret)
-            => Trace.Listeners.Add(new AppCenterTraceListener(secret));
+        public static void Initialize()
+            => Trace.Listeners.Add(new AppCenterTraceListener());
 
         public override void Write(string message)
         {

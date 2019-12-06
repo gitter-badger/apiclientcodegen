@@ -3,6 +3,7 @@ using System.Reflection;
 using System.Threading.Tasks;
 using ApiClientCodeGen.CLI.Commands;
 using ApiClientCodeGen.CLI.Options;
+using ChristianHelle.DeveloperTools.CodeGenerators.ApiClient;
 using ChristianHelle.DeveloperTools.CodeGenerators.ApiClient.Core;
 using ChristianHelle.DeveloperTools.CodeGenerators.ApiClient.Core.Generators;
 using ChristianHelle.DeveloperTools.CodeGenerators.ApiClient.Core.Generators.NSwag;
@@ -19,6 +20,8 @@ namespace ApiClientCodeGen.CLI
     {
         static async Task<int> Main(string[] args)
         {
+            AppCenterTraceListener.Initialize();
+
             var builder = new HostBuilder()
                 .ConfigureServices(ConfigureServices);
 

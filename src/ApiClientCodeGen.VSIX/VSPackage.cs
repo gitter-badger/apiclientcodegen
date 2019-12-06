@@ -92,7 +92,7 @@ namespace ChristianHelle.DeveloperTools.CodeGenerators.ApiClient
             await JoinableTaskFactory.SwitchToMainThreadAsync(cancellationToken);
             await base.InitializeAsync(cancellationToken, progress);
             OutputWindow.Initialize(this, VsixName);
-            AppCenterTraceListener.Initialize();
+            AppCenterTraceListener.Initialize("aa732165-2dbb-44ec-ad72-89c6c0c62d5f");
             Instance = this;
 
             foreach (var command in commands)
